@@ -30,7 +30,7 @@
 
   <table>
     <thead>
-      <tr>
+    <tr>
         <th>Imagen</th>
         <th>Nombre</th>
         <th>Descripcion</th>
@@ -38,11 +38,11 @@
     </thead>
     <tbody>
         {% for usuarios in personas_list %}
-      <tr>
-        <td>{{ usuarios.imagen }}</td>
-        <td>{{ usuarios.nombre }}</td>
-        <td>{{ usuarios.descripcion}}</td>
-      </tr>
+            <tr>
+                <td><img src="{{ usuarios.imagen.url }}" width="300" height="300"></td>
+                <td>{{ usuarios.nombre }}</td>
+                <td>{{ usuarios.descripcion}}</td>
+            </tr>
         {% endfor %}
 
     </tbody>

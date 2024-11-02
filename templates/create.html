@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Objeto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8e1f4, #50c878); /* Degradado de Rosado perla a Verde esmeralda */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #f5f5dc; /* Color crema */
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 40%;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .card label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card input[type="text"], .card input[type="file"], .card textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .card input[type="submit"] {
+            background-color: #d2b48c; /* Marrón claro */
+            color: #333;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card input[type="submit"]:hover {
+            background-color: #b8860b; /* Marrón dorado */
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Crear Nuevo Objeto</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo">
+            
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion"></textarea>
+            
+            <label for="imagen">Imagen</label>
+            <input type="file" id="imagen" name="imagen">
+            
+            <label for="precio">Precio</label>
+            <input type="text" id="precio" name="precio">
+            
+            <input type="submit" value="Crear">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffcccb; /* Rojo muy claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .product-card {
+            background-color: #b3e5fc; /* Azul cristalino */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .product-description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .product-buttons button {
+            background-color: gold;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-buttons button:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <div class="product-title">{{post.titulo}}</div>
+        <div class="product-price">${{post.precio}}</div>
+        <div class="product-description">
+            <p>{{post.descripcion}}</p>
+        </div>
+        {% if post.imagen %}
+        <div class="product-image">
+            <img src="{{post.imagen.url}}" alt="Imagen del Producto">
+        </div>
+        {% endif %}
+        <!-- <div class="product-buttons">
+    
+            <button><a href="{% url 'update' post.pk %}">Actualizar</a></button>
+        </div>
+    </div> -->
+    <a href="{% url 'update' post.pk %}">Actualizar</a>
+    <a href="{% url 'delete' post.pk %}">Eliminar</a>
+</body>
+</html>
